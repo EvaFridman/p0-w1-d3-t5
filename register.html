@@ -19,7 +19,76 @@
             </nav>
         </header>
         <main id="main">
-            <p>Р</p>
+            <form action="https://httpbin.org/get">
+                <fieldset>
+                    <legend>Ваши контактные данные</legend>
+
+                    <label for="name">Имя</label>
+                    <input 
+                        type="text"
+                        id="name"
+                        name="name"
+                        pattern="[A-Za-z]{2,20}"
+                        autocomplete="name"
+                        required
+                        aria-describedby="name-help"
+                    />
+                    <small id="name-help">Разрешены только латинские буквы без пробелов, длина от 2 до 20 символов</small>
+                    <p aria-live="polite" id="name-error"></p>
+                    <hr>
+
+                    <label for="email">Электронная почта</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                        aria-describedby="email-help"
+                    />
+                    <small id="email-help">Например, name@example.com</small>
+                    <p aria-live="polite" id="email-error"></p>
+                    <hr>
+
+                    <label for="phone">Телефон</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        pattern="\+?7\d{10}"
+                        placeholder="+79213335577"
+                        autocomplete="tel"
+                        required
+                        aria-describedby="tel-help"
+                    />
+                    <small id="tel-help">Введите номер телефона в формате +7 123 456 78 90 или 7 123 456 78 90</small>
+                    <p aria-live="polite" id="tel-error"></p>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Хотим узнать побольше</legend>
+
+                    <fieldset>
+                        <legend>Вы планируете дать нам денег?</legend>
+                        <label><input type="radio" name="money" value="yes">Да</label>
+                        <label><input type="radio" name="money" value="no">Нет</label>
+                        <label><input type="radio" name="money" value="maybe">Может быть</label>
+                    </fieldset>
+
+                    <label for="lead">Откуда вы о нас узнали?</label>
+                    <input list="leads" id="lead" name="lead" placeholder="Выберите источник">
+                    <datalist id="leads">
+                        <option value="Из соцсетей">
+                        <option value="От друзей">
+                        <option value="Вы сами мне написали">
+                    </datalist>
+
+                </fieldset>
+
+                <button type="submit">Отправить</button>
+                <button type="reset">Сбросить</button>
+            </form>
         </main>
         <footer>
             <address>
